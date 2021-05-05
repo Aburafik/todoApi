@@ -26,6 +26,6 @@ mongoose.connect(
 
 
 app.use("/",router)
-app.listen(8070, () => {
+app.listen(process.env.PORT||8070, () => {
   console.log("server is running at 8070")
 })
