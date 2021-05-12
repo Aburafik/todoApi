@@ -52,10 +52,11 @@ router.delete("/delete", async (req: Request, res: Response) => {
 router.put("/update", async (req: Request, res: Response) => {
 
   const filter = {
-    title: req.body.title
+    id: req.body.id
   }
   const updateData = {
-    description: req.body. description
+    description: req.body. description,
+    title: req.body.title,
   }
   const dataItem = await Todo.updateOne(filter, updateData, {
     new: true
