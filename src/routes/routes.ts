@@ -51,20 +51,19 @@ router.delete("/delete", async (req: Request, res: Response) => {
 
 router.put("/update", async (req: Request, res: Response) => {
 
-  const filter = {
-    id: req.body.id
-  }
+  const {id} =  req.body
+  
   const updateData = {
     title: req.body.title,
     description: req.body.description,
   }
-  const dataItem = await Todo.findOneAndUpdate(filter,updateData,{
+  const dataItem = await Todo.findByIdAndUpdate(id,updateData,{
     new: true
   });
   res.status(200).json({
     data: dataItem
   }); 
- 
+
 });
 
 export { router };
