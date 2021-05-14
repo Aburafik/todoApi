@@ -58,7 +58,7 @@ router.put("/update", async (req: Request, res: Response) => {
     title: req.body.title,
     description: req.body.description,
   }
-  const dataItem = await Todo.findOneAndUpdate(updateData,filter ,{
+  const dataItem = await Todo.findOneAndUpdate(filter,updateData,{
     new: true
   });
   res.status(200).json({
