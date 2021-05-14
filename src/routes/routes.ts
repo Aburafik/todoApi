@@ -53,11 +53,11 @@ router.patch("/:id", async (req: Request, res: Response) => {
 
   const {id} =  req.params
   
-  // const updateData = {
-  //   title: req.body.title,
-  //   description: req.body.description,
-  // }
-  const dataItem = await Todo.findByIdAndUpdate(id,req.body,{
+  const updateData = {
+    title: req.body.title,
+    description: req.body.description,
+  }
+  const dataItem = await Todo.findByIdAndUpdate(id,updateData,{
     new: true
   });
   res.status(200).json({
