@@ -49,15 +49,15 @@ router.delete("/delete", async (req: Request, res: Response) => {
 
 ///updata data
 
-router.put("/update", async (req: Request, res: Response) => {
+router.patch("/:id", async (req: Request, res: Response) => {
 
-  const {id} =  req.body
+  const {id} =  req.params
   
-  const updateData = {
-    title: req.body.title,
-    description: req.body.description,
-  }
-  const dataItem = await Todo.findByIdAndUpdate(id,updateData,{
+  // const updateData = {
+  //   title: req.body.title,
+  //   description: req.body.description,
+  // }
+  const dataItem = await Todo.findByIdAndUpdate(id,req.body,{
     new: true
   });
   res.status(200).json({
